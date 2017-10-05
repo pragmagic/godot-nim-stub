@@ -3,7 +3,17 @@ import ospaths
 switch("nimcache", ".nimcache"/hostOS/hostCPU)
 
 when defined(macosx):
-  switch("passL", "-framework Cocoa -Wl,-undefined,dynamic_lookup")
+  when defined(ios):
+    if hostCPU == "arm64":
+      switch("passC", "-arch arm64")
+      switch("passL", "-arch arm64")
+    elif hostCPU == "arm":
+      switch("passC", "-arch armv7")
+      switch("passL", "-arch armv7")
+    switch("passC", "-mios-version-min=9.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk")
+    switch("passL", "-mios-version-min=9.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk")
+  else:
+    switch("passL", "-framework Cocoa")
 elif defined(android):
   let ndk = getEnv("ANDROID_NDK_ROOT")
   let toolchain = getEnv("ANDROID_TOOLCHAIN")
@@ -29,11 +39,6 @@ elif defined(android):
 elif defined(windows):
   assert(sizeof(int) == 8)
   switch("cc", "vcc")
-  let godotLib = getEnv("GODOT_LIB")
-  if godotLib.len == 0:
-    raise newException(OSError,
-      "GODOT_LIB must be specified and point to the .lib file")
-  switch("clib", godotLib.changeFileExt(""))
 elif defined(linux):
   switch("passC", "-fPIC")
 else:

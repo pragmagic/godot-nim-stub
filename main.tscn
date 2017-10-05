@@ -14,8 +14,10 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Panel" type="Panel"]
 
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -26,8 +28,10 @@ _sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="Label" type="Label" parent="."]
 
-anchor_right = 1
-anchor_bottom = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -44,6 +48,8 @@ _sections_unfolded = [ "Anchor", "Margin", "custom_fonts" ]
 
 [node name="FPS" parent="." instance=ExtResource( 3 )]
 
+anchor_top = 0.0
+anchor_bottom = 0.0
 margin_left = 189.0
 margin_bottom = 58.0
 

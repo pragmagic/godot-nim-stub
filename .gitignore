@@ -2,5 +2,6 @@
 /_dlls
 /nakefile
 /_godotapi
+/logs
 nimcache
 .nimcache
