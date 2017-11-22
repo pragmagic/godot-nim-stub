@@ -4,7 +4,7 @@ description   = "Godot-Nim Project Stub"
 license       = "MIT"
 bin           = @["stub"]
 
-requires "godot >= 0.6.0 & < 0.7.0"
+requires "godot >= 0.6.8 & < 0.7.0"
 
 task make, "build":
   const bitsPostfix = when sizeof(int) == 8: "_64" else: "_32"
@@ -16,7 +16,7 @@ task make, "build":
     elif defined(macosx):
       "nim_mac.dylib"
     elif defined(android):
-      "nim_android.so"
+      "libnim_android.so"
     elif defined(linux):
       "nim_linux" & bitsPostfix & ".so"
     else: nil
