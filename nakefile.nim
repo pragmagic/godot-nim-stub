@@ -27,8 +27,21 @@ proc genGodotApi() =
 
 task "build", "Builds the client for the current platform":
   genGodotApi()
+  let bitsPostfix = when sizeof(int) == 8: "_64" else: "_32"
+  let libFile =
+    when defined(windows):
+      "nim" & bitsPostfix & ".dll"
+    elif defined(ios):
+      "nim_ios" & bitsPostfix & ".dylib"
+    elif defined(macosx):
+      "nim_mac.dylib"
+    elif defined(android):
+      "libnim_android.so"
+    elif defined(linux):
+      "nim_linux" & bitsPostfix & ".so"
+    else: nil
   withDir "src":
-    direShell("nimble", "make")
+    direShell(["nimble", "c", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
 
 task "clean", "Remove files produced by build":
   removeDir(".nimcache")
