@@ -27,6 +27,7 @@ proc genGodotApi() =
 
 task "build", "Builds the client for the current platform":
   genGodotApi()
+  createDir("_dlls")
   let bitsPostfix = when sizeof(int) == 8: "_64" else: "_32"
   let libFile =
     when defined(windows):
