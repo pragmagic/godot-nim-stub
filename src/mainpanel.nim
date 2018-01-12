@@ -14,5 +14,5 @@ gdobj MainPanel of Panel:
       if ev.buttonIndex == BUTTON_LEFT:
         getTree().setInputAsHandled()
         let scene = load("res://scene.tscn") as PackedScene
-        getTree().getRoot().addChild(scene.instance())
+        getTree().root().addChild(scene.instance())
         queueFree()
