@@ -40,6 +40,7 @@ task "build", "Builds the client for the current platform":
     elif defined(linux):
       "nim_linux" & bitsPostfix & ".so"
     else: nil
+  createDir("_dlls")
   withDir "src":
     direShell(["nimble", "c", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
 
