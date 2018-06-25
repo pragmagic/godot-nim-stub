@@ -18,7 +18,7 @@ proc genGodotApi() =
   const jsonFile = targetDir/"api.json"
   if not fileExists(jsonFile) or
      godotBin.getLastModificationTime() > jsonFile.getLastModificationTime():
-    direShell(godotBin, "--gdnative-generate-json-api", jsonFile)
+    direShell(godotBin, "--gdnative-generate-json-api", getCurrentDir()/jsonFile)
     if not fileExists(jsonFile):
       echo "Failed to generate api.json"
       quit(-1)
