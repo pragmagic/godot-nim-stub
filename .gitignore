@@ -5,3 +5,6 @@
 /logs
 nimcache
 .nimcache
+*.exe
+*.ilk
+*.pdb

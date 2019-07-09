@@ -6,7 +6,7 @@ import godotapigen
 
 proc genGodotApi() =
   let godotBin = getEnv("GODOT_BIN")
-  if godotBin.isNil or godotBin.len == 0:
+  if godotBin.len == 0:
     echo "GODOT_BIN environment variable is not set"
     quit(-1)
   if not fileExists(godotBin):

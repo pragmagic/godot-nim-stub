@@ -3,4 +3,4 @@ author        = "Xored Software, Inc."
 description   = "Godot-Nim Project Stub"
 license       = "MIT"
 
-requires "godot >= 0.7.11 & < 0.8.0"
+requires "https://github.com/travisstaloch/godot-nim#head"
