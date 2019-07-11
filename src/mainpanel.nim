@@ -6,13 +6,13 @@ import scene_tree, resource_loader, packed_scene, panel, global_constants,
 
 gdobj MainPanel of Panel:
   method ready*() =
-    setProcessInput(true)
+    self.setProcessInput(true)
 
   method input*(event: InputEvent) =
     if event of InputEventMouseButton:
       let ev = event as InputEventMouseButton
       if ev.buttonIndex == BUTTON_LEFT:
-        getTree().setInputAsHandled()
+        self.getTree().setInputAsHandled()
         let scene = load("res://scene.tscn") as PackedScene
-        getTree().root.addChild(scene.instance())
-        queueFree()
+        self.getTree().root.addChild(scene.instance())
+        self.queueFree()

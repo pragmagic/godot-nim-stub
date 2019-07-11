@@ -8,7 +8,7 @@ gdobj FPSCounter of Label:
   var lastFPS: float32
 
   method ready*() =
-    setProcess(true)
+    self.setProcess(true)
 
   method process*(delta: float64) =
     let fps = getFramesPerSecond()
