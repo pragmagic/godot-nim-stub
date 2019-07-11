@@ -8,3 +8,11 @@ Prerequisites:
 4. Install godot-nim: `nimble install godot`
 
 Run `nake build` in any directory within the project to compile for the current platform.
+
+If you encounter any errors, try removing the .nimcache folder, the _godotapi folder and the nakefile executable and run `nake build` again.
+
+```sh
+rm -rf .nimcache\
+rm -rf _godotapi\
+rm -f nakefile nakefile.{exe,ilk,pdb}
+```
