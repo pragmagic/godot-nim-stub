@@ -1,7 +1,7 @@
 /.import
 /_dlls
 /nakefile
-/_godotapi
+/src/godotapi
 /logs
 nimcache
 .nimcache
